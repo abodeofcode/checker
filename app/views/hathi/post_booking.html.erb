@@ -1,0 +1,612 @@
+<div class="container booking">
+	<h3 style="text-transform: uppercase; text-align: center; padding-bottom: 30px;">Order confirmation</h3>
+	<div class="bs-example col-sm-10 col-sm-offset-1" data-example-id="collapse-accordion">
+		<!-- Progress bar -->
+		<div class="progress">
+		  <div class="progress-bar progress-bar-success progress-bar-striped" id="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width:0%;">
+		    0%
+		  </div>
+		</div>
+
+		<form class="form-inline" role="booking" id="booking_request" style="margin-bottom: 40px;">
+		<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true" style="min-height: 400px;">
+	      <div class="panel panel-default">
+	        <div class="panel-heading" role="tab" id="heading-1">
+	          <h4 class="panel-title">
+	            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-1" aria-expanded="true" aria-controls="collapse-1">
+	            	#1 Pickup & Drop
+	            </a>
+	            <!-- Replace with new data after success -->
+	          </h4>
+	        </div>
+	        <div id="collapse-1" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading-1">
+	          <div class="panel-body">
+	          		<div class="form-group col-sm-6" style="text-align:center">
+					   <b><h4>PICK UP DETAILS</h4></b>
+					</div>
+					<div class="form-group col-sm-6" style="text-align:center">
+					  <b><h4>DROP DETAILS</h4></b>
+					</div>
+					<div class="form-group col-sm-6">
+					    <label class="control-label"></label>
+					    <div class="input-group">
+					      <span class="input-group-addon"><i class='fa fa-map-marker' style='font-size: 16px; padding-right: 6px;'></i> Pick up</span>
+					      <input type="text" name="pickup" class="form-control input-sh input-block" id="pac-input-pickup" aria-describedby="inputGroupSuccess3Status" value="<%= params[:pickup] %>">
+					    </div>
+					</div>
+					<div class="form-group col-sm-6">
+					    <label class="control-label"></label>
+					    <div class="input-group">
+					      <span class="input-group-addon"><i class='fa fa-map-marker' style='font-size: 16px; padding-right: 6px;'></i> Drop</span>
+					      <input type="text" name="drop" class="form-control input-sh input-block" id="pac-input-drop" aria-describedby="inputGroupSuccess3Status" value="<%= params[:drop] %>">
+					    </div>
+					</div>
+					<div class="form-group col-sm-6">
+					    <label class="control-label"></label>
+					    <div class="input-group">
+					      <span class="input-group-addon"><i class='fa fa-map-marker' style='font-size: 16px; padding-right: 6px;'></i> Address</span>
+					      <input type="text" name="pick_detailed_address" class="form-control input-sh input-block" id="" aria-describedby="inputGroupSuccess3Status" value="<%= params[:pick_detailed_address] %>" placeholder="Enter detailed address">
+					    </div>
+					</div>
+					<div class="form-group col-sm-6">
+					    <label class="control-label"></label>
+					    <div class="input-group">
+					      <span class="input-group-addon"><i class='fa fa-map-marker' style='font-size: 16px; padding-right: 6px;'></i> Address</span>
+					      <input type="text" name="drop_detailed_address" class="form-control input-sh input-block" id="" aria-describedby="inputGroupSuccess3Status" value="<%= params[:drop_detailed_address] %>" placeholder="Enter detailed address">
+					    </div>
+					</div>
+					<div class="form-group col-sm-6">
+					    <label class="control-label"></label>
+					    <div class="input-group">
+					      <span class="input-group-addon"><i class='fa fa-map-marker' style='font-size: 16px; padding-right: 6px;'></i> Landmark</span>
+					      <input type="text" name="pick_landmark" class="form-control input-sh input-block" id="" aria-describedby="inputGroupSuccess3Status" value="<%= params[:pick_landmark] %>" placeholder="Enter landmark">
+					    </div>
+					</div>
+					<div class="form-group col-sm-6">
+					    <label class="control-label"></label>
+					    <div class="input-group">
+					      <span class="input-group-addon"><i class='fa fa-map-marker' style='font-size: 16px; padding-right: 6px;'></i> Landmark</span>
+					      <input type="text" name="drop_landmark" class="form-control input-sh input-block" id="" aria-describedby="inputGroupSuccess3Status" value="<%= params[:drop_landmark] %>" placeholder="Enter landmark">
+					    </div>
+					</div>
+					<div class="form-group col-sm-6">
+					    <label class="control-label"></label>
+					    <div class="input-group">
+					      <span class="input-group-addon"><i class='fa fa-truck' style='font-size: 16px; padding-right: 6px;'></i> Vehicle Type</span>
+					      <input name="vehicletype" type="text" class="form-control input-sh input-block" id="inputGroupSuccess3" aria-describedby="inputGroupSuccess3Status" value="<%= params[:vehicletype] %>">
+					    </div>
+					</div>
+					<div class="form-group col-sm-6">
+					    <label class="control-label"></label>
+					    <div class="input-group">
+					      <span class="input-group-addon"><i class='fa fa-mobile' style='font-size: 16px; padding-right: 6px;'></i> Mobile</span>
+					      <input name="mobilenumber" type="text" class="form-control input-sh input-block" id="phonenumber" aria-describedby="inputGroupSuccess3Status" value="<%= params[:mobilenumber] %>" placeholder="Enter valid mobile number"/>
+					    </div>
+					</div>
+					<button class="btn btn-default btn-sh btn-info btn-continue">Continue</button>
+	          	</div>
+	        </div>
+	      </div>
+	      <div class="panel panel-default">
+	        <div class="panel-heading" role="tab" id="heading-2">
+	          <h4 class="panel-title">
+	            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-2" aria-expanded="false" aria-controls="collapse-2">
+	              #2 Pick Date and Time
+	            </a>
+	        	<!-- <a class="pull-right change" href="">Change</a> -->
+	          </h4>
+	        </div>
+	        <div id="collapse-2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-2">
+	          <div class="panel-body">
+	          		<div class="form-group col-sm-6">
+					    <label class="control-label"></label>
+					    <div class="input-group">
+					      <span class="input-group-addon"><i class='fa fa-calender' style='font-size: 16px; padding-right: 6px;'></i> Pick up date and time</span>
+					      <input type="text" data-provide='datepicker' name="pick_datetime" class="form-control input-sh input-block" id="pickup-date" aria-describedby="inputGroupSuccess3Status" placeholder="Pick up date">
+					    </div>
+					</div>	
+					<div style="clear:both">
+						<button class="btn btn-default btn-info btn-sh btn-continue">Continue</button>
+					</div>
+	          </div>
+	        </div>
+	      </div>
+	      <div class="panel panel-default" data-step-value="3">
+	        <div class="panel-heading" role="tab" id="heading-3">
+	          <h4 class="panel-title">
+	            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-3" aria-expanded="false" aria-controls="collapse-3">
+	              #3 Labour Requirement
+	            </a>
+	          </h4>
+	        </div>
+	        <div id="collapse-3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-3">
+	          <div class="panel-body">
+	          	<div class="row">
+				  <div class="multi-field-wrapper col-sm-6" style="padding-left: 20px;">
+				      <div class="multi-fields">
+				        <div class="multi-field input-group" style="margin: 4px;">
+				          <input type="text" data-item="item" class="form-control col-sm-4 items-to" name="stuff[]" style="" placeholder="Enter Item ....">
+				          <button type="button" style="float:right" class="remove-field btn btn-default btn-danger"><i class="fa fa-remove"></i></button>
+				        </div>
+				      </div>
+				    <button type="button" style="margin: 8px 0px 0px 4px;" class="add-field btn btn-default btn-info"><i class="fa fa-plus"></i>&nbsp;&nbsp;Add field</button>
+				 </div>
+				</div>
+				<!-- Floor numbers -->
+				<div class="row">
+					<div class="form-group col-sm-6">
+					    <label class="control-label"></label>
+					    <div class="input-group">
+					      <span class="input-group-addon"><i class="fa fa-map-marker" style="font-size: 16px; padding-right: 6px;"></i> Pick up floor number</span>
+					       <select id="pick_floor" name="pick_floor" class="" style="width:100%;min-width:200px;border-radius:0px;height:40px;-webkit-appearance: none;" data-placeholder: "Choose a floor number">
+					       	<option></option>
+					      	<option value="0">Ground floor </option>
+					      	<option value="1">First floor</option>
+					      	<option value="2">Second floor</option>
+					      	<option value="3">Third floor</option>
+					      	<option value="4">Above third floor</option>
+					      </select>
+					      <!-- <input type="text" name="pickup" class="form-control input-sh input-block" id="pac-input-pickup" aria-describedby="inputGroupSuccess3Status" value="" placeholder="Enter floor number" autocomplete="off"> -->
+					    </div>
+					</div>
+					<div class="form-group col-sm-6">
+					    <label class="control-label"></label>
+					    <div class="input-group">
+					      <span class="input-group-addon"><i class="fa fa-map-marker" style="font-size: 16px; padding-right: 6px;"></i> Drop address floor number</span>
+					      <!-- <input type="text" name="drop" class="form-control input-sh input-block" id="pac-input-drop" aria-describedby="inputGroupSuccess3Status" value="" placeholder="Enter floor number" autocomplete="off"> -->
+					       <select id="drop_floor" name="drop_floor" class="" style="width:100%;min-width:200px;border-radius:0px;height:40px;-webkit-appearance: none;" data-placeholder="Choose floor number">
+					       	<option></option>
+					      	<option value="0">Ground floor </option>
+					      	<option value="1">First floor</option>
+					      	<option value="2">Second floor</option>
+					      	<option value="3">Third floor</option>
+					      	<option value="4">Above third floor</option>
+					      </select>
+					    </div>
+					</div>
+					<div class="form-group col-sm-6">
+					    <label class="control-label"></label>
+					    <div class="input-group">
+					      <span class="input-group-addon"><i class="fa fa-building-o" style="font-size: 16px; padding-right: 6px;"></i> Lift at pickup address</span>
+					      <select id="pick_lift" name="pick_lift" class="" style="width:100%;min-width:200px;border-radius:0px;height:40px;-webkit-appearance: none;" placeholder="Choose floor number">
+					      	<option></option>
+					      	<option value="No">No</option>
+					      	<option value="Yes">Yes</option>
+					      </select>
+					    </div>
+					</div>
+					<div class="form-group col-sm-6">
+					    <label class="control-label"></label>
+					    <div class="input-group">
+					      <span class="input-group-addon"><i class="fa fa-building-o" style="font-size: 16px; padding-right: 6px;"></i> Lift at drop address</span>
+					      <select id="drop_lift" name="drop_lift" class="" style="width:100%;min-width:200px;border-radius:0px;height:40px;-webkit-appearance: none;" placeholder="Choose floor number">
+					      	<option></option>
+					      	<option value="No">No</option>
+					      	<option value="Yes">Yes</option>
+					      </select>
+					    </div>
+					</div>
+	    			<div class="form-group col-sm-6">
+					    <label class="control-label"></label>
+					    <div class="input-group">
+					      <span class="input-group-addon"><i class="fa fa-building-o" style="font-size: 16px; padding-right: 6px;"></i> Labour required</span>
+					      <select id="labour" name="labour" class="" style="width:100%;min-width:200px;border-radius:0px;height:40px;-webkit-appearance: none;" placeholder="Select labour">
+					      	<option></option>
+					      	<option value="0">No Labour</option>
+					      	<option value="1">1 Labour</option>
+					      	<option value="2">2 Labours</option>
+					      	<option value="3">3 Labours</option>
+					      	<option value="4">4 Labours</option>
+					      </select>
+					    </div>
+					</div>
+					<div class="form-group col-sm-6"> 
+						<a href="" data-toggle="tooltip" data-placement="top" title="For washing machine, 2 labours are required, for 400 lt fridge 3 labours are required, for queen size single bed with boxes, ,three labours are required, for 1.5 ton AC  3 labours are required and for 2 ton AC 4 labours are required. Similarly it may vary according to the items."><i class="fa fa-question-circle" style="font-size: 24px; margin-top:20px;"></i></a>
+					</div>
+					<div class="col-sm-12">
+	    				<p style="padding:10px 10px 0px">For single item, per labor charge is Rs 199 from 2nd floor/lift to 2nd floor/lift. For more than single item, per labor charge is Rs 299 from 2nd floor/lift to 2nd floor/lift. </p>
+	    			</div>
+              	 	<!-- <div class="col-lg-12 radio-groups">
+				      	<label >
+		                    <input type="radio" id="" name="labour" checked="checked" value="0-labour" /> No Labour needed
+		                    <input type="radio" id="" name="labour"value="1-labour" /> One Labour
+		                    <input type="radio" id="" name="labour" value="2-labour" /> Two Labour
+		                </label> 
+                	</div> -->
+		      		<button class="btn btn-default btn-info btn-sh btn-continue col-sm-2" style="display:inline-block">Continue</button>
+		      	</div>
+	          </div>
+	        </div>
+	      </div>	      
+
+	      <div class="panel panel-default">
+	        <div class="panel-heading" role="tab" id="heading-4">
+	          <h4 class="panel-title">
+	            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-4" aria-expanded="false" aria-controls="collapse-4">
+	               #4 Confirmation
+	            </a>
+	          </h4>
+	        </div>
+	        <div id="collapse-4" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-4">
+	          <div class="panel-body">
+				  <div class="form-group col-sm-5">
+				    <input data-item="OTP" id="otp" type="text" class="form-control input-sh" placeholder="Enter OTP">
+					  <br>
+					<a href="" id="resend_sms">Resend SMS</a>
+				</div>
+				  <button id="OTP_verify" class="col-sm-1 btn btn-default btn-info btn-sh">Verify</button>
+				  <div class="form-group col-sm-5">
+				    <input data-item="code" name="couponused" id="promo_code" type="text" class="form-control input-sh" placeholder="Got Promo code">
+				    <input style="display: none" id="verified" name="verified" type="text" value="0">
+				  </div>
+				  <button id="promo_submit" class="col-sm-1 btn btn-default btn-info btn-sh">Apply</button>
+			  </div>
+	        </div>
+	      </div>
+	    </div>
+	    <!-- Add reCaptcha here// Any way we got phone number verification using otp -->
+	    <!-- <div class="g-recaptcha" data-sitekey="6LdYNwoTAAAAAAz_LoEa-w0C4Ya1ilL2IpXLfNN7"></div> -->
+	    <div class="row" style="margin-top: 30px;">
+			<button id="send_request" disabled="disabled" class="btn btn-success btn-sh col-sm-12" style="">Book my Hathi</button>
+		</div> 
+	  </div>
+	  </form>
+		
+</div>
+
+
+<script>
+
+	function initialize() {
+	  
+	  var input = (document.getElementById('pac-input-drop'))
+	      input2 = (document.getElementById('pac-input-pickup'));
+
+	  var autocomplete = new google.maps.places.Autocomplete(input);
+	  var autocomplete2 = new google.maps.places.Autocomplete(input2);
+	  
+	  // Autocomplete.
+	  function setupClickListener(id, types) {
+	    var radioButton = document.getElementById(id);
+	    google.maps.event.addDomListener(radioButton, 'click', function() {
+	      autocomplete.setTypes(types);
+	    });
+	  }
+
+	  setupClickListener('changetype-all', []);
+	  setupClickListener('changetype-address', ['address']);
+	  setupClickListener('changetype-establishment', ['establishment']);
+	  setupClickListener('changetype-geocode', ['geocode']);
+	}
+
+	google.maps.event.addDomListener(window, 'load', initialize);
+
+$("#booking_request").submit(function(e){
+    return false;
+});
+
+</script>
+
+
+<script type="text/javascript">
+	$('.multi-field-wrapper').each(function() {
+	    var $wrapper = $('.multi-fields', this);
+	    $(".add-field", $(this)).click(function(e) {
+	        $('.multi-field:first-child', $wrapper).clone(true).appendTo($wrapper).find('input').val('');
+	    });
+	    $('.multi-field .remove-field', $wrapper).click(function() {
+	    	if ($('.multi-field', $wrapper).length > 1)
+	            $(this).parent('.multi-field').remove();
+	    });
+	});
+</script>
+
+<script type="text/javascript">
+
+// On clicking continue button
+$('.btn-continue').on('click',function(e){
+	e.preventDefault();
+
+	// Check for the errors
+	var target = $(e.target).closest('.in'),
+		panel = $(e.target).closest('.panel');
+
+	if(checkStepInfo(panel)){ // Check errors
+		changeStep(panel)
+	}
+});
+
+$('.collapsed').click(function(e) {
+    e.preventDefault();
+})
+
+function progressbarUpdate(val){
+	var bar = $('#progress-bar');
+	bar.text(val+'%');
+	bar.attr('style','width:'+val+'%');
+}
+
+
+function changeStep(panel){
+		var step = panel.find('.panel-collapse'),
+			step_no = parseInt((step.attr('id')).split('-',2)[1]);
+
+
+		// Move the next element
+		// To prevent jump due to uneven heights
+		// panel.find('.collapse').removeClass('in', {duration:1500,effect:'blind'});
+		panel.next().find('.collapse').addClass('in');
+	    progressbarUpdate(step_no*25);//Update the progessbar
+}
+
+//   // This is a functions that scrolls to #{blah}link
+// function goToByScroll(id){
+//       // Remove "link" from the ID
+//     id = id.replace("link", "");
+//       // Scroll
+//     $('html,body').animate({
+//         scrollTop: $("#"+id).offset().top+200
+//     },'slow');
+// }
+
+function checkError(data){
+		var phoneCheck = true;
+		var value;
+		parent = data.parent();
+		 
+		// Remove of any errors
+		if(!data.data('item')){
+			parent.closest('.form-group').removeAttr('class').addClass('form-group col-sm-6')
+		}
+		parent.siblings('.glyphicon').remove()
+		
+		// special check for phone number
+		if(data.attr('id')=='phonenumber'){
+			value = (data.val()).toString();
+			((value).match(/^[789]\d{9}$/i))?phoneCheck=true:phoneCheck=false
+			if(phoneCheck){
+				sendSms(data.attr('id'));
+			}
+		}else{
+			value = data.val();			
+		}
+
+		if(data.data('item')!="item"){
+			// Check for errors
+			if(value.length && phoneCheck){
+				data.closest('.form-group').addClass('has-success has-feedback')
+				parent.after('<span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>')
+			}else{ 
+				data.closest('.form-group').addClass('has-error has-feedback')
+				parent.after('<span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>')
+			}
+		}
+	}
+
+$(':input').on('focusout',function(e){
+	e.preventDefault();
+	checkError($(e.target))
+})
+
+
+$('select').on('click',function(e){
+	e.preventDefault();
+	checkError($(e.target))
+})
+
+// Ajax to send OTP or resend OTP
+
+$('#resend_sms').on('click',function(e){
+	e.preventDefault();
+	e.stopPropagation();
+	sendSms($(this).attr('id'));
+	// Not a good idea
+});
+
+function sendSms(t){
+	var that = t;
+	var phonenumber = $('#phonenumber').val();
+	if(!phonenumber){
+		alert('Please enter a valid phone number in step 1')
+	}
+	else{
+		$('#'+t).html('<img src="http://www.ub.edu/searchproject/wp-content/plugins/mailpress/mp-includes/images/loading.gif"/>')
+		data = {'phonenumber': phonenumber}
+		$.ajax({
+			url:'/sendotp',
+			data: data,
+			method: 'POST',
+			beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+			success:function(data){
+				if(t.indexOf('resend_sms')>-1){
+					$('#resend_sms').text('SMS sent. Click here to resend again.')
+				}else{
+					var d = $('#phonenumber');
+					d.attr('readonly','readonly');
+					d.parent().after('<span class="" style="font-size:11px;margin-top:10px;float:right; font-weight: bold">OTP Sent sucessfully!</span>');
+				}
+			},
+			errors:function(){
+
+			}
+		})
+	}
+}
+
+function checkStepInfo(panel){
+	// Get all input fields and check status
+	var inputs = panel.find('input');
+	if(panel.data('step-value')==3){
+		inputs = panel.find('select');
+	}
+	var vals= {};
+	inputs.each(function(){
+		checkError($(this));
+	})
+	// If not errors change step
+	if(panel.find('.has-error').length){
+		return 0;
+	}else{
+		return 1;
+	}
+}
+
+function checkEmpty(value){
+	if(value.length){
+		return 1;
+	}else{
+		return 0; 
+	}
+}
+
+$('#pickup-date').datetimepicker({
+	 format:'d.m.Y H:i',
+  	 minDate: 0,
+  	 minTime: 0,
+});
+// $('#pickup-time').timepicker();
+</script>
+
+<script type="text/javascript">
+// Writing scripts to keep things easy and simple
+$('#promo_submit').on('click',function(e){
+	var that = $(this),
+		code = {'code': $('#promo_code').val()};
+
+	e.preventDefault();
+	e.stopPropagation();
+	
+	that.html('<img src="http://www.ub.edu/searchproject/wp-content/plugins/mailpress/mp-includes/images/loading.gif"/>')
+	// // Ajax call to check promo
+	$.ajax({
+		url: 'checkpromo',
+		data: code,
+		method: 'POST',
+		beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+		success:function(data){
+			// If code is found success fully
+			if(!data.errors){
+				that.html('<i class="fa fa-check-circle fa-2" style="font-size:18px"</i>');
+				var div = $('#promo_code');
+				div.attr('readonly','readonly')
+				div.closest('.form-group').addClass('has-success has-feedback')
+				parent.after('<span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>')
+			}else{
+				that.html('APPLY')
+			}
+		},
+		errors: function(){
+		}
+	})
+	// return
+});
+
+// Post data to it
+$('#send_request').on('click',function(e){
+	var that = $(this);
+	var o={};
+
+	e.preventDefault();
+	e.stopPropagation();
+
+	// Get all input data
+	var inputs = $("#booking_request").serializeArray();
+	console.log(inputs);
+	$.each(inputs,function(i,d){
+		if (o[this.name] !== undefined) {
+            if (!o[this.name].push) {
+                o[this.name] = [o[this.name]];
+            }
+            o[this.name].push(this.value || '');
+        } else {
+            o[this.name] = this.value || '';
+        }
+	})
+	
+	// Adding the itesm list to the data
+	o['items'] = $('input[name="stuff[]"]').map(function(){return $(this).val();}).get();  
+
+	// Dont call ajax if any required field is empty
+
+	// // Ajax call to check promo
+	$('#send_request').html('<img src="http://www.ub.edu/searchproject/wp-content/plugins/mailpress/mp-includes/images/loading.gif"/>')
+	$.ajax({
+		url: 'orders',
+		data: o,
+		method: 'POST',
+		beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+		success:function(data){
+			// If code is found success fully
+			if(!data.errors){
+				// Crude hack
+				progressbarUpdate(100);
+				$('#send_request').remove();
+				$('.panel-group').html('Thank you for booking with us. We will soon contact you.')
+			}else{
+				$('#send_request').html('Book my Hathi')
+				alert('There are alerts in the booking form')
+			}
+		},
+		errors: function(){
+			console.log('We found errors')
+		}
+	})
+	// return
+});
+
+$('#OTP_verify').on('click',function(e){
+	var that = $(this),
+		code = {'otp': $('#otp').val()};
+
+	e.preventDefault();
+	e.stopPropagation();
+	// Change to loading image
+	that.html('<img src="http://www.ub.edu/searchproject/wp-content/plugins/mailpress/mp-includes/images/loading.gif"/>')
+	$.ajax({
+		url: 'checkotp',
+		data: code,
+		method: 'POST',
+		beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+		success:function(data){
+			// If code is found success fully
+			if(!data.errors){
+				that.html('<i class="fa fa-check-circle fa-2" style="font-size:18px"</i>');
+				$('#verified').val('1');
+				$('#send_request').removeAttr('disabled');
+				var div = $('#otp');
+				div.attr('readonly','readonly')
+				div.closest('.form-group').removeAttr('class').addClass('form-group col-sm-5 has-success has-feedback')
+				parent.after('<span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>')
+			}else{
+				that.html('VERIFY')
+			}
+		},
+		errors: function(){
+			console.log('We found errors')
+		}
+	})
+	// return
+});
+
+$(document).ready(function() {
+	var floor_options = {
+				minimumResultsForSearch: Infinity,
+				placeholder: 'Please select a floor'
+			};
+	var lift_options = {
+				minimumResultsForSearch: Infinity,
+				placeholder: 'Please select lift availability'
+			};
+	$("#pick_floor").select2(floor_options); 
+	$("#drop_floor").select2(floor_options); 
+	$("#pick_lift").select2(lift_options); 
+	$("#drop_lift").select2(lift_options);
+	$("#labour").select2(lift_options);
+
+});
+
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+
+</script>

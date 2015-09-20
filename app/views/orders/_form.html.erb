@@ -1,0 +1,53 @@
+<%= form_for(@order) do |f| %>
+  <% if @order.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
+
+      <ul>
+      <% @order.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :pickup %><br>
+    <%= f.text_field :pickup %>
+  </div>
+  <div class="field">
+    <%= f.label :drop %><br>
+    <%= f.text_field :drop %>
+  </div>
+  <div class="field">
+    <%= f.label :pick_time %><br>
+    <%= f.datetime_select :pick_time %>
+  </div>
+  <div class="field">
+    <%= f.label :vehicletype %><br>
+    <%= f.text_field :vehicletype %>
+  </div>
+  <div class="field">
+    <%= f.label :mobilenumber %><br>
+    <%= f.number_field :mobilenumber %>
+  </div>
+  <div class="field">
+    <%= f.label :items %><br>
+    <%= f.text_field :items %>
+  </div>
+  <div class="field">
+    <%= f.label :labour %><br>
+    <%= f.number_field :labour %>
+  </div>
+  <div class="field">
+    <%= f.label :couponused %><br>
+    <%= f.text_field :couponused %>
+  </div>
+  <div class="field">
+    <%= f.label :verified %><br>
+    <%= f.check_box :verified %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

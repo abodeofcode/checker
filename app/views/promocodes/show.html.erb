@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Codetext:</strong>
+  <%= @promocode.codetext %>
+</p>
+
+<p>
+  <strong>Timesused:</strong>
+  <%= @promocode.timesused %>
+</p>
+
+<p>
+  <strong>Discount value:</strong>
+  <%= @promocode.discount_value %>
+</p>
+
+<p>
+  <strong>Validity:</strong>
+  <%= @promocode.validity %>
+</p>
+
+<%= link_to 'Edit', edit_promocode_path(@promocode) %> |
+<%= link_to 'Back', promocodes_path %>

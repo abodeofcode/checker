@@ -1,0 +1,15 @@
+- Dont proceed to next step unless this is filled?
+
+- Pricing look and design
+- Send email in Async
+- Change progress bar calculation process
+- Add how it works
+- Add smoothscroll
+- Prefill available data
+- Convert everything to Javascript Oops
+- Change the way items are handled.
+- Add favicon
+- Add estimation/quote
+- Change the toggle buttons in the form from dropdown buttons. Look at logisure. Reduce the number of collection fields
+- Attach the image of the vehicle and pricing to the slider on choosing the vehicle like in moovo
+- Clean up all the shit

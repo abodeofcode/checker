@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  pickup: MyString
+  drop: MyString
+  pick_time: 2015-08-06 00:17:23
+  vehicletype: MyString
+  mobilenumber: 1
+  items: MyString
+  labour: 1
+  couponused: MyString
+  verified: false
+
+two:
+  pickup: MyString
+  drop: MyString
+  pick_time: 2015-08-06 00:17:23
+  vehicletype: MyString
+  mobilenumber: 1
+  items: MyString
+  labour: 1
+  couponused: MyString
+  verified: false

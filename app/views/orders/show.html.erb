@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Pickup:</strong>
+  <%= @order.pickup %>
+</p>
+
+<p>
+  <strong>Drop:</strong>
+  <%= @order.drop %>
+</p>
+
+<p>
+  <strong>Pick time:</strong>
+  <%= @order.pick_time %>
+</p>
+
+<p>
+  <strong>Vehicletype:</strong>
+  <%= @order.vehicletype %>
+</p>
+
+<p>
+  <strong>Mobilenumber:</strong>
+  <%= @order.mobilenumber %>
+</p>
+
+<p>
+  <strong>Items:</strong>
+  <%= @order.items %>
+</p>
+
+<p>
+  <strong>Labour:</strong>
+  <%= @order.labour %>
+</p>
+
+<p>
+  <strong>Couponused:</strong>
+  <%= @order.couponused %>
+</p>
+
+<p>
+  <strong>Verified:</strong>
+  <%= @order.verified %>
+</p>
+
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back', orders_path %>

@@ -1,0 +1,33 @@
+<%= form_for(@promocode) do |f| %>
+  <% if @promocode.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@promocode.errors.count, "error") %> prohibited this promocode from being saved:</h2>
+
+      <ul>
+      <% @promocode.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :codetext %><br>
+    <%= f.text_field :codetext %>
+  </div>
+  <div class="field">
+    <%= f.label :timesused %><br>
+    <%= f.number_field :timesused %>
+  </div>
+  <div class="field">
+    <%= f.label :discount_value %><br>
+    <%= f.number_field :discount_value %>
+  </div>
+  <div class="field">
+    <%= f.label :validity %><br>
+    <%= f.check_box :validity %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
