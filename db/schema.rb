@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150823213350) do
+ActiveRecord::Schema.define(version: 20150927063638) do
 
   create_table "locations", force: :cascade do |t|
     t.string   "lat_lng",    limit: 255
@@ -49,6 +49,8 @@ ActiveRecord::Schema.define(version: 20150823213350) do
     t.string   "drop_landmark",         limit: 255
     t.string   "drop_detailed_address", limit: 255
     t.string   "pick_detailed_address", limit: 255
+    t.string   "name",                  limit: 255
+    t.string   "email",                 limit: 255
   end
 
   create_table "promocodes", force: :cascade do |t|
