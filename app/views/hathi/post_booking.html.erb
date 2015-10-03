@@ -34,7 +34,7 @@
 					    <label class="control-label"></label>
 					    <div class="input-group">
 					      <span class="input-group-addon"><i class='fa fa-map-marker' style='font-size: 16px; padding-right: 6px;'></i> Email Id</span>
-					      <input type="text" name="email" class="form-control input-sh input-block"  aria-describedby="inputGroupSuccess3Status" value="<%= params[:email] %>" placeholder="Enter your email Id">
+					      <input type="text" name="email" id="email" class="form-control input-sh input-block"  aria-describedby="inputGroupSuccess3Status" value="<%= params[:email] %>" placeholder="Enter your email Id">
 					    </div>
 					</div>			
 					<div class="form-group col-sm-6">
@@ -49,15 +49,15 @@
 	        </div>
 	      </div>  
 	      <div class="panel panel-default">
-	        <div class="panel-heading" role="tab" id="heading-1">
+	        <div class="panel-heading" role="tab" id="heading-2">
 	          <h4 class="panel-title">
-	            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-1" aria-expanded="true" aria-controls="collapse-1">
-	            	#1 Pickup & Drop
+	            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-2" aria-expanded="true" aria-controls="collapse-2">
+	            	#2 Pickup & Drop
 	            </a>
 	            <!-- Replace with new data after success -->
 	          </h4>
 	        </div>
-	        <div id="collapse-1" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading-1">
+	        <div id="collapse-2" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading-2">
 	          <div class="panel-body">
 	          		<div class="form-group col-sm-6">
 					    <label class="control-label"></label>
@@ -115,15 +115,15 @@
 	        </div>
 	      </div>
 	      <div class="panel panel-default">
-	        <div class="panel-heading" role="tab" id="heading-2">
+	        <div class="panel-heading" role="tab" id="heading-3">
 	          <h4 class="panel-title">
-	            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-2" aria-expanded="false" aria-controls="collapse-2">
+	            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-3" aria-expanded="false" aria-controls="collapse-3">
 	              #3 Pick Date and Time
 	            </a>
 	        	<!-- <a class="pull-right change" href="">Change</a> -->
 	          </h4>
 	        </div>
-	        <div id="collapse-2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-2">
+	        <div id="collapse-3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-3">
 	          <div class="panel-body">
 	          		<div class="form-group col-sm-6">
 					    <label class="control-label"></label>
@@ -138,15 +138,15 @@
 	          </div>
 	        </div>
 	      </div>
-	      <div class="panel panel-default" data-step-value="3">
-	        <div class="panel-heading" role="tab" id="heading-3">
+	      <div class="panel panel-default" data-step-value="4">
+	        <div class="panel-heading" role="tab" id="heading-4">
 	          <h4 class="panel-title">
-	            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-3" aria-expanded="false" aria-controls="collapse-3">
+	            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-4" aria-expanded="false" aria-controls="collapse-4">
 	              #4 Labour Requirement
 	            </a>
 	          </h4>
 	        </div>
-	        <div id="collapse-3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-3">
+	        <div id="collapse-4" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-4">
 	          <div class="panel-body">
 	          	<div class="row">
 				  <div class="multi-field-wrapper col-sm-6" style="padding-left: 20px;">
@@ -195,7 +195,7 @@
 					    <label class="control-label"></label>
 					    <div class="input-group">
 					      <span class="input-group-addon"><i class="fa fa-building-o" style="font-size: 16px; padding-right: 6px;" placeholder="Lift at Pickup Address?"></i> Lift at Pickup address</span>
-					      <select id="pick_lift" name="pick_lift" class="" style="width:100%;min-width:200px;border-radius:0px;height:40px;-webkit-appearance: none;" placeholder="Choose floor number">
+					      <select id="pick_lift" name="pick_lift" class="" style="width:100%;min-width:200px;border-radius:0px;height:40px;-webkit-appearance: none;">
 					      	<option></option>
 					      	<option value="No">No</option>
 					      	<option value="Yes">Yes</option>
@@ -274,7 +274,7 @@
 	    <!-- Add reCaptcha here// Any way we got phone number verification using otp -->
 	    <!-- <div class="g-recaptcha" data-sitekey="6LdYNwoTAAAAAAz_LoEa-w0C4Ya1ilL2IpXLfNN7"></div> -->
 	    <div class="row" style="margin-top: 30px;">
-			<button id="send_request"  class="btn btn-success btn-sh col-sm-12" style="">Book my Hathi</button>
+			<button id="send_request" disabled="disabled" class="btn btn-success btn-sh col-sm-12" style="">Book my Hathi</button>
 		</div> 
 	  </div>
 	  </form>
@@ -364,6 +364,10 @@ function changeStep(panel){
 		// panel.find('.collapse').removeClass('in', {duration:1500,effect:'blind'});
 		panel.next().find('.collapse').addClass('in');
 	    progressbarUpdate(step_no*25);//Update the progessbar
+		if(step_no*25 == 100)
+		{
+		     $('#send_request').removeAttr('disabled');
+		}
 }
 
 //   // This is a functions that scrolls to #{blah}link
@@ -380,6 +384,7 @@ function checkError(data){
 		var phoneCheck = true;
 		var value;
 		parent = data.parent();
+                var emailCheck = true;
 		 
 		// Remove of any errors
 		if(!data.data('item')){
@@ -392,7 +397,16 @@ function checkError(data){
 			value = (data.val()).toString();
 			((value).match(/^[789]\d{9}$/i))?phoneCheck=true:phoneCheck=false
 			if(phoneCheck){
-				sendSms(data.attr('id'));
+				//sendSms(data.attr('id'));
+			}
+		}else{
+			value = data.val();			
+		}
+                if(data.attr('id')=='email'){
+			value = (data.val()).toString();
+			((value).match(/[a-zA-Z0-9._%]@(?:[a-zA-Z0-9]+\.)[a-zA-Z]{2,4}/))?emailCheck=true:emailCheck=false
+			if(emailCheck){
+				//sendSms(data.attr('id'));
 			}
 		}else{
 			value = data.val();			
@@ -463,7 +477,7 @@ function sendSms(t){
 function checkStepInfo(panel){
 	// Get all input fields and check status
 	var inputs = panel.find('input');
-	if(panel.data('step-value')==3){
+	if(panel.data('step-value')==4){
 		inputs = panel.find('select');
 	}
 	var vals= {};
@@ -568,7 +582,7 @@ $('#send_request').on('click',function(e){
 				// Crude hack
 				progressbarUpdate(100);
 				$('#send_request').remove();
-				$('.panel-group').html('Thank you for booking with us. We will soon contact you.')
+				$('.panel-group').html('<br><br><br><h2>Thank you for booking with us. We will soon contact you soon.<h2>')
 			}else{
 				$('#send_request').html('Book my Hathi')
 				alert('There are alerts in the booking form')
@@ -618,11 +632,11 @@ $('#OTP_verify').on('click',function(e){
 $(document).ready(function() {
 	var floor_options = {
 				minimumResultsForSearch: Infinity,
-				placeholder: 'Please select a floor'
+				placeholder: 'Please select a Floor'
 			};
 	var lift_options = {
 				minimumResultsForSearch: Infinity,
-				placeholder: 'Please select lift availability'
+				placeholder: 'Please select Lift Availability'
 			};
 	$("#pick_floor").select2(floor_options); 
 	$("#drop_floor").select2(floor_options); 
