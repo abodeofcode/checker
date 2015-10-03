@@ -279,7 +279,7 @@ Waiting charge for tempo (Tata Ace/Mahindra Champion): Rs. 2/min.</p>
 			var data = $(e.target);
 			var  value = data.val();
 			var noerror = false;
-			if( value.indexOf('Delhi') > -1 || value.indexOf('Gurgaon') > -1){
+			if( value.indexOf('Delhi') > -1 || value.indexOf('Gurgaon') > -1 || value.indexOf('Noida') ){
 				noerror = true;
 				// Append city not being served error
 			}else{
@@ -422,7 +422,7 @@ $('#vehicletype').typeahead({
             geocoder.geocode({ 'address': addr}, function (results, status) {
                 if (status == google.maps.GeocoderStatus.OK) {
                 	latlng = results;
-                	if(addr.indexOf('Delhi') > -1 || addr.indexOf('Gurgaon') > -1){
+                	if(addr.indexOf('Delhi') > -1 || addr.indexOf('Gurgaon') > -1 || addr.indexOf('Noida') > -1  ){
 	                	setSuccess(field);
 	                	return false;	
                 	}else{
